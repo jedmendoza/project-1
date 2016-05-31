@@ -8,15 +8,16 @@
 </head>
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12" id="overlay"> 
+    <div class="row" id="buffer">
+      <div class="col-xs-12" id="overlay">
         <div class="row">
-          <div class="col-xs-6">
-            <input type="text" class="form-control" id="input" name="term">
-          </div>
-          <button class="btn btn-default" id="searchbutton" type="button">Search</button>
-          <div class="row">
-            <div class="results">results</div>
+          <div class="panel panel-default" id="panel">
+            <div class="panel-body">
+              <div id="lookie" class="col-xs-12">
+                <input type="text" class="col-xs-6" id="input" name="term">
+                <button class="btn btn-default" id="searchbutton" type="button">Search</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -24,9 +25,10 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
-        <div class="video" id="video">
-  <script src="default.js"></script>
+      <div id="player"> Video player </div>
 
-</body>
-</html>
+<script src="default.js"></script>
+
+
+            </body>
+            </html>
