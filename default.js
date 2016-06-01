@@ -115,7 +115,7 @@ var videos = [
   var button = document.getElementById('searchbutton');
   button.addEventListener('click', function(theEvent) {
     var term = document.getElementById('input');
-    find(term.value)
+    find(term.value, videos)
   });
 
 
@@ -131,16 +131,13 @@ var videos = [
     return suggestions;
   }
 
-  function suggest(){
-    var input = document.getElementById('input');
-    var matched = find(input.value);
-    console.log()
+  function show(videos) {
+    var results = document.getElementById('results');
+    for (var i = 0; i < videos.length; i++) {
+      var item = document.createElement('div');
+      item.setAttribute('class', 'col-xs-6')
+      item.textContent = video[i].name;
+      results.appendChild(video);
+    }
+
   }
-  
-
-
-
-  //var results = document.createElement('h1');
-  //function showResults(suggestions) {
-
-  //}
