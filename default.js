@@ -2,7 +2,8 @@ var videos = [
   {
     name: 'Game Theory: The Hunt for Super Smash Bros. LOST STAGE!',
     url: 'https://youtu.be/8WAsQKcJ_Xo',
-    tags: ['video games', 'games', 'educational'],
+    embed: 'https://www.youtube.com/embed/8WAsQKcJ_Xo',
+    tags: ['video games', 'games', 'educational', 'theory'],
     comments: [
       'This was funny',
       'Very interesting',
@@ -11,7 +12,8 @@ var videos = [
     {
       name: 'Film Theory: How to KILL X-Mens Magneto!',
       url: 'https://youtu.be/YTbeRTH7jkg',
-      tags: ['film', 'x-men', 'magneto', 'movie', 'theory'],
+      embed: ['https://www.youtube.com/v/YTbeRTH7jkg'],
+      tags: ['film', 'x-men', 'magneto', 'movie', 'theory', 'marvel'],
       comments: [
         'LOL',
         'Magneto is a glass cannon',
@@ -21,7 +23,8 @@ var videos = [
     {
       name: 'Film Theory: Rick\'s True Crime EXPOSED!',
       url: 'https://youtu.be/5dZAGFKhUFY',
-      tags: ['film', 'theory', 'rick and morty', 'funny'],
+      embed: 'https://www.youtube.com/embed/5dZAGFKhUFY',
+      tags: ['film', 'theory', 'rick and morty', 'funny', 'theory'],
       comments: [
         'Mind blown!',
         'I love rick and morty!',
@@ -31,6 +34,7 @@ var videos = [
     {
       name: 'Dark Souls III: Pyromania - PART 1 - Game Grumps',
       url: 'https://youtu.be/Zk2wuSJOjCs',
+      emebed: 'https://www.youtube.com/embed/Zk2wuSJOjCs',
       tags: ['game', 'grumps', 'funny', 'dark souls'],
       comments: [
         'Dark souls is so hard',
@@ -51,6 +55,7 @@ var videos = [
     {
       name: 'How to Stay Calm When You Know You\'ll Be Stressed | Daniel Levitin | TED Talks',
       url: 'https://youtu.be/8jPQjjsBbIc',
+      emebed: 'https://www.youtube.com/embed/8jPQjjsBbIc',
       tags: ['lifehack', 'ted talks', 'educational', 'stress relief'],
       comments: [
         'Glad I found this',
@@ -61,6 +66,7 @@ var videos = [
     {
       name: 'Accelerated Learning: How To Get Good at Anything in 20 Hours',
       url: 'https://youtu.be/lB6K60mkmho',
+      embed: 'https://www.youtube.com/embed/lB6K60mkmho',
       tags: ['lifehack', 'educational'],
       comments: [
         'Woah',
@@ -71,6 +77,7 @@ var videos = [
     {
       name: '$682 Hackintosh Mac Mini vs. $1,300 Apple Mac Mini',
       url: 'https://youtu.be/aZU9KD2YESQ',
+      embed: 'https://www.youtube.com/embed/aZU9KD2YESQ',
       tags: ['computer', 'tech', 'mac', 'educational'],
       comments: [
         'I want to build one!',
@@ -81,6 +88,7 @@ var videos = [
     {
       name: 'How-To: build a Hackintosh: software installation',
       url: 'https://youtu.be/HbUAYCSEjQA',
+      embed: 'https://www.youtube.com/embed/HbUAYCSEjQA',
       tags: ['hackintosh', 'educational', 'tech', 'computers'],
       comments: [
         'Sweet!',
@@ -91,6 +99,7 @@ var videos = [
     {
       name: 'X-Men: Apocalypse Easter Eggs You Missed',
       url: 'https://youtu.be/l32YPlm1sqo',
+      embed: 'https://www.youtube.com/embed/l32YPlm1sqo',
       tags: ['x-men', 'easter eggs', 'movie', 'new'],
       comments: [
         'wow!',
@@ -100,7 +109,8 @@ var videos = [
     },
     {
       name: 'How Strong is the Hulk?',
-      url: 'https://youtu.be/crynw8hb1tg',
+      url: 'http://youtu.be/crynw8hb1tg',
+      embed: 'https://www.youtube.com/embed/crynw8hb1tg',
       tags: ['hulk', 'marvel', 'the avengers', 'comics'],
       comments: [
         'Incredible!',
@@ -115,7 +125,8 @@ var videos = [
   var button = document.getElementById('searchbutton');
   button.addEventListener('click', function(theEvent) {
     var term = document.getElementById('input');
-    find(term.value, videos)
+    var theVideos = find(term.value, videos);
+    show(theVideos)
   });
 
 
@@ -131,13 +142,33 @@ var videos = [
     return suggestions;
   }
 
+
+//shows videos with thumbnails when searching for tag name
   function show(videos) {
-    var results = document.getElementById('results');
+    var results = document.getElementById('player');
     for (var i = 0; i < videos.length; i++) {
-      var item = document.createElement('div');
-      item.setAttribute('class', 'col-xs-6')
-      item.textContent = video[i].name;
-      results.appendChild(video);
+      var iframe = document.createElement('iframe');
+      iframe.setAttribute('src', videos[i].embed);
+      results.appendChild(iframe);
+
+
     }
 
   }
+
+
+
+
+
+
+//var item = document.createElement('div');
+//item.setAttribute('class', 'col-xs-6');
+//item.textContent = (videos[i].name);
+//results.appendChild(item);
+
+
+
+
+}
+
+}
