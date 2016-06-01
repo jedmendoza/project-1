@@ -2,8 +2,8 @@ var videos = [
   {
     name: 'Game Theory: The Hunt for Super Smash Bros. LOST STAGE!',
     url: 'https://youtu.be/8WAsQKcJ_Xo',
-    embed: 'https://www.youtube.com/embed/8WAsQKcJ_Xo',
-    tags: ['video games', 'games', 'educational', 'theory'],
+    embed: 'https://www.youtube.com/v/8WAsQKcJ_Xo',
+    tags: ['video games', 'games', 'educational', 'theory','all'],
     comments: [
       'This was funny',
       'Very interesting',
@@ -13,7 +13,7 @@ var videos = [
       name: 'Film Theory: How to KILL X-Mens Magneto!',
       url: 'https://youtu.be/YTbeRTH7jkg',
       embed: ['https://www.youtube.com/v/YTbeRTH7jkg'],
-      tags: ['film', 'x-men', 'magneto', 'movie', 'theory', 'marvel'],
+      tags: ['film', 'x-men', 'magneto', 'movie', 'theory', 'marvel','all'],
       comments: [
         'LOL',
         'Magneto is a glass cannon',
@@ -23,8 +23,8 @@ var videos = [
     {
       name: 'Film Theory: Rick\'s True Crime EXPOSED!',
       url: 'https://youtu.be/5dZAGFKhUFY',
-      embed: 'https://www.youtube.com/embed/5dZAGFKhUFY',
-      tags: ['film', 'theory', 'rick and morty', 'funny', 'theory'],
+      embed: 'https://www.youtube.com/v/5dZAGFKhUFY',
+      tags: ['film', 'theory', 'rick and morty', 'funny', 'theory','all'],
       comments: [
         'Mind blown!',
         'I love rick and morty!',
@@ -34,8 +34,8 @@ var videos = [
     {
       name: 'Dark Souls III: Pyromania - PART 1 - Game Grumps',
       url: 'https://youtu.be/Zk2wuSJOjCs',
-      emebed: 'https://www.youtube.com/embed/Zk2wuSJOjCs',
-      tags: ['game', 'grumps', 'funny', 'dark souls'],
+      emebed: 'https://www.youtube.com/v/Zk2wuSJOjCs',
+      tags: ['game', 'grumps', 'funny', 'dark souls','all'],
       comments: [
         'Dark souls is so hard',
         'I wish I had friends',
@@ -45,7 +45,7 @@ var videos = [
     {
       name: 'Top 10 NEW Games of June 2016',
       url: 'https://youtu.be/88xS3RdFB80',
-      tags: ['game', 'top', '2016'],
+      tags: ['game', 'top', '2016','all'],
       comments: [
         'I can\'t wait!',
         'When do these come out?',
@@ -55,8 +55,8 @@ var videos = [
     {
       name: 'How to Stay Calm When You Know You\'ll Be Stressed | Daniel Levitin | TED Talks',
       url: 'https://youtu.be/8jPQjjsBbIc',
-      emebed: 'https://www.youtube.com/embed/8jPQjjsBbIc',
-      tags: ['lifehack', 'ted talks', 'educational', 'stress relief'],
+      emebed: 'https://www.youtube.com/v/8jPQjjsBbIc',
+      tags: ['lifehack', 'ted talks', 'educational', 'stress relief','all'],
       comments: [
         'Glad I found this',
         'My parents were right!',
@@ -66,8 +66,8 @@ var videos = [
     {
       name: 'Accelerated Learning: How To Get Good at Anything in 20 Hours',
       url: 'https://youtu.be/lB6K60mkmho',
-      embed: 'https://www.youtube.com/embed/lB6K60mkmho',
-      tags: ['lifehack', 'educational'],
+      embed: 'https://www.youtube.com/v/lB6K60mkmho',
+      tags: ['lifehack', 'educational','all'],
       comments: [
         'Woah',
         'Wow',
@@ -77,8 +77,8 @@ var videos = [
     {
       name: '$682 Hackintosh Mac Mini vs. $1,300 Apple Mac Mini',
       url: 'https://youtu.be/aZU9KD2YESQ',
-      embed: 'https://www.youtube.com/embed/aZU9KD2YESQ',
-      tags: ['computer', 'tech', 'mac', 'educational'],
+      embed: 'https://www.youtube.com/v/aZU9KD2YESQ',
+      tags: ['computer', 'tech', 'mac', 'educational','all'],
       comments: [
         'I want to build one!',
         'Mac\'s for the win',
@@ -88,8 +88,8 @@ var videos = [
     {
       name: 'How-To: build a Hackintosh: software installation',
       url: 'https://youtu.be/HbUAYCSEjQA',
-      embed: 'https://www.youtube.com/embed/HbUAYCSEjQA',
-      tags: ['hackintosh', 'educational', 'tech', 'computers'],
+      embed: 'https://www.youtube.com/v/HbUAYCSEjQA',
+      tags: ['hackintosh', 'educational', 'tech', 'computers','all'],
       comments: [
         'Sweet!',
         'Now I don\'t have to spend money!',
@@ -99,8 +99,8 @@ var videos = [
     {
       name: 'X-Men: Apocalypse Easter Eggs You Missed',
       url: 'https://youtu.be/l32YPlm1sqo',
-      embed: 'https://www.youtube.com/embed/l32YPlm1sqo',
-      tags: ['x-men', 'easter eggs', 'movie', 'new'],
+      embed: 'https://www.youtube.com/v/l32YPlm1sqo',
+      tags: ['x-men', 'easter eggs', 'movie', 'new','all'],
       comments: [
         'wow!',
         'I did not see that!',
@@ -110,8 +110,8 @@ var videos = [
     {
       name: 'How Strong is the Hulk?',
       url: 'http://youtu.be/crynw8hb1tg',
-      embed: 'https://www.youtube.com/embed/crynw8hb1tg',
-      tags: ['hulk', 'marvel', 'the avengers', 'comics'],
+      embed: 'https://www.youtube.com/v/crynw8hb1tg',
+      tags: ['hulk', 'marvel', 'the avengers', 'comics','all'],
       comments: [
         'Incredible!',
         'hulk vs spiderman?',
@@ -142,14 +142,26 @@ var videos = [
     return suggestions;
   }
 
+  //function findComments() {
+    //var words = [];
+    //videos.forEach(function(comments) {
+      //if (video.comments.indexOf(comments) !==-1){
+        //words.push(video)
+      //}
+    //});
+    //return words;
+    //console.log(words)
+  //}
 
-//shows videos with thumbnails when searching for tag name
+
+  //shows videos with thumbnails when searching for tag name
   function show(videos) {
     var results = document.getElementById('player');
     for (var i = 0; i < videos.length; i++) {
       var iframe = document.createElement('iframe');
-      iframe.setAttribute('src', videos[i].embed);
+      iframe.setAttribute('src', videos[i].embed, 'class', 'embed-responsive-item');
       results.appendChild(iframe);
+
 
 
     }
@@ -161,14 +173,8 @@ var videos = [
 
 
 
-//var item = document.createElement('div');
-//item.setAttribute('class', 'col-xs-6');
-//item.textContent = (videos[i].name);
-//results.appendChild(item);
 
-
-
-
-}
-
-}
+  //var item = document.createElement('div');
+  //item.setAttribute('class', 'col-xs-6');
+  //item.textContent = (videos[i].name);
+  //results.appendChild(item);
