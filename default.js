@@ -1,7 +1,7 @@
 var videos = [
   {
     name: 'Game Theory: The Hunt for Super Smash Bros. LOST STAGE!',
-    url: 'https://youtu.be/8WAsQKcJ_Xo',
+    url: 'https://img.youtube.com/vi/8WAsQKcJ_Xo/default.jpg',
     embed: 'https://www.youtube.com/v/8WAsQKcJ_Xo',
     tags: ['video games', 'games', 'educational', 'theory','all'],
     comments: [
@@ -122,12 +122,18 @@ var videos = [
     }
   ];
 
+  //Clicking on search button displays results on page
   var button = document.getElementById('searchbutton');
   button.addEventListener('click', function(theEvent) {
     var term = document.getElementById('input');
     var theVideos = find(term.value, videos);
-    show(theVideos)
+    showThumbnails(theVideos);
+
   });
+
+
+
+
 
 
   //Search for videos using tags
@@ -142,26 +148,15 @@ var videos = [
     return suggestions;
   }
 
-  //function findComments() {
-    //var words = [];
-    //videos.forEach(function(comments) {
-      //if (video.comments.indexOf(comments) !==-1){
-        //words.push(video)
-      //}
-    //});
-    //return words;
-    //console.log(words)
-  //}
 
-
-  //shows videos with thumbnails when searching for tag name
-  function show(videos) {
-    var results = document.getElementById('player');
+  function showThumbnails(videos) {
+    var results = document.getElementById('thumbs');
     for (var i = 0; i < videos.length; i++) {
       var iframe = document.createElement('iframe');
-      iframe.setAttribute('src', videos[i].embed, 'class', 'embed-responsive-item');
+      //var buttons = document.createElement('button');
+      iframe.setAttribute('src', videos[i].embed);
+      //buttons.setAttribute('src', videos[i].embed, 'class', 'embed-responsive-item');
       results.appendChild(iframe);
-
 
 
     }
@@ -170,11 +165,13 @@ var videos = [
 
 
 
+  /*function fullScreen(videos) {
+    var results = document.getElementById('large');
+    for (var i = 0; i < videos.length; i++) {
+      var iframe = document.createElement('iframe');
+      iframe.setAttribute('src', videos[i].embed, 'class', 'embed-responsive-item');
+      results.appendChild(iframe);
+      document.createElement('button');
 
-
-
-
-  //var item = document.createElement('div');
-  //item.setAttribute('class', 'col-xs-6');
-  //item.textContent = (videos[i].name);
-  //results.appendChild(item);
+    }
+}*/
