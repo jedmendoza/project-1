@@ -143,6 +143,8 @@ var videos =
   });
 
 
+
+
   //Search for videos using tags
   function find(tags) {
     var suggestions = [];
@@ -176,33 +178,41 @@ var videos =
   }
 
 function swap(next, view) {
-  var old = document.getElementsByClassName('row current');
+  var old = document.getElementsByClassName('current')[0];
   old.classList.remove('current');
   old.classList.add('hide');
 
-  enlarged.appendChild(next);
+
   next.classList.add('current)');
   next.classList.remove('hide');
+
+  view.appendChild(next);
+
   // Hide the current view.
   // Show the enlarged video video.
 }
 
 var theThumbnails = document.getElementById('thumbnails');
 theThumbnails.addEventListener('click', function(theEvent) {
-  console.log(theEvent.target.className)
-  if(theEvent.target.className.indexOf('enlarge') !== -1) {
+  console.log(theEvent.target.className);
 
-    var enlargedContainer = document.getElementById('enlarged');
-    enlargedContainer.className = 'col-md-12 embed-responsive embed-responsive-16by9';
+    var enlargedContainer = document.createElement('div');
+    enlargedContainer.setAttribute('class', 'embed-responsive embed-responsive-16by9');
+  //if(theEvent.target.className.indexOf('enlarge') !== -1) {
+
+    /*var enlargedContainer = document.getElementById('enlarged');
+    enlargedContainer.className = 'col-md-12 embed-responsive embed-responsive-16by9';*/
 
     var enlargedVideo = document.createElement('iframe');
-    enlargedVideo.setAttribute('src', video.embed);
+    enlargedVideo.setAttribute('src', 'https://www.youtube.com/v/8WAsQKcJ_Xo');
     enlargedVideo.setAttribute('class', 'embed-responsive-item');
+    console.log(enlargedVideo);
+
     var largeVideoRow = document.getElementById('row hide');
 
     enlargedContainer.appendChild(enlargedVideo);
+    enlarged.appendChild(enlargedContainer);
     // Create an enlarged video.
     // Append the large video to the enlarged view.
     swap(enlarged, view);
-  }
-});
+  })
