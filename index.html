@@ -2,7 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href="default.css" style="text/css" rel="stylesheet">
+  <!-- <link href="default.css" style="text/css" rel="stylesheet"> -->
   <meta charset="utf-8">
   <title></title>
 </head>
@@ -20,26 +20,15 @@
             </div>
           </div>
         </div>
-        <div class="row" id="testbutton">
-          <button class="btn btn-default" id="fullscreenbutton" type="button">Enlarge</button>
-        </div>
       </div>
     </div>
   </div>
   <div class="container">
-    <div class="row">
-      <div id='player'>
-        <div id="thumbs" class="current"></div>
-        <div id="large" class="embed-responsive embed-responsive-16by9" "hide"></div>
-      </div>
+    <div id="view">
+      <div class="row current" id="thumbnails"></div>
+      <div class="row hide" id="enlarged"></div>
     </div>
-    <div class="row" id="clickrow">
-
-
-
-
-<script src="default.js"></script>
-
-
-            </body>
-            </html>
+  </div>
+  <script src="default.js"></script>
+</body>
+</html>
