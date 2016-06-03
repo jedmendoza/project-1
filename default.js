@@ -176,14 +176,31 @@ var videos =
   }
 
 function swap(next, view) {
+  var old = document.getElementsByClassName('row current');
+  old.classList.remove('current');
+  old.classList.add('hide');
+
+  enlarged.appendChild(next);
+  next.classList.add('current)');
+  next.classList.remove('hide');
   // Hide the current view.
   // Show the enlarged video video.
 }
 
 var theThumbnails = document.getElementById('thumbnails');
 theThumbnails.addEventListener('click', function(theEvent) {
-  console.log(theEvent.target.className
+  console.log(theEvent.target.className)
   if(theEvent.target.className.indexOf('enlarge') !== -1) {
+
+    var enlargedContainer = document.getElementById('enlarged');
+    enlargedContainer.className = 'col-md-12 embed-responsive embed-responsive-16by9';
+
+    var enlargedVideo = document.createElement('iframe');
+    enlargedVideo.setAttribute('src', video.embed);
+    enlargedVideo.setAttribute('class', 'embed-responsive-item');
+    var largeVideoRow = document.getElementById('row hide');
+
+    enlargedContainer.appendChild(enlargedVideo);
     // Create an enlarged video.
     // Append the large video to the enlarged view.
     swap(enlarged, view);
