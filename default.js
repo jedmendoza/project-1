@@ -143,25 +143,25 @@ videoResults.addEventListener('click', function(theEvent) {
 });
 
 
-
-
 //Search for videos using tags
 function find(tags) {
   var suggestions = [];
   videos.forEach(function(video) {
-    if (video.tags.indexOf(tags) !== -1) {
+    if (video.tags.indexOf(tags) !== -1)  {
       suggestions.push(video)
+      console.log(suggestions);
     }
   });
   return suggestions;
 }
+
 
 function videoThumbnail(video) {
   var container = document.createElement('div');
   container.className = 'col-md-3';
 
   var thumbnail = document.createElement('div');
-  thumbnail.className = 'embed-responsive embed-responsive-16by9'
+  thumbnail.className = 'embed-responsive embed-responsive-16by9';
 
   var embed = document.createElement('iframe');
   embed.className = 'embed-responsive-item';
@@ -170,6 +170,8 @@ function videoThumbnail(video) {
   var button = document.createElement('button');
   button.className = 'col-md-12 btn btn-default enlarge';
   button.textContent = 'Enlarge';
+  button.setAttribute('id', video.id);
+  button.setAttribute('src', video.embed);
 
   container.appendChild(thumbnail);
   container.appendChild(button);
@@ -195,22 +197,31 @@ function swap(next, view) {
 var theThumbnails = document.getElementById('thumbnails');
 theThumbnails.addEventListener('click', function(theEvent) {
   //console.log(theEvent.target.className);
-
+  console.log(theEvent.target.getAttribute('id'))
   var enlargedContainer = document.createElement('div');
   enlargedContainer.setAttribute('class', 'embed-responsive embed-responsive-16by9');
-  //if(theEvent.target.className.indexOf('enlarge') !== -1) {
-
-  /*var enlargedContainer = document.getElementById('enlarged');
-  enlargedContainer.className = 'col-md-12 embed-responsive embed-responsive-16by9';*/
+  console.log(enlargedContainer)
 
   var enlargedVideo = document.createElement('iframe');
-  enlargedVideo.setAttribute('src', 'https://www.youtube.com/v/5dZAGFKhUFY');
   enlargedVideo.setAttribute('class', 'embed-responsive-item');
+  for (var i = 0; i < videos.length; i++) {
+    if (videos[i].id == theEvent.target.getAttribute('id')) {
+      enlargedVideo.setAttribute('src', videos[i].embed)
+    }
+  }
+
+
   //console.log(enlargedVideo);
 
   var largeVideoRow = document.getElementById('row hide');
 
-  var commentStart =document.getElementById('commentbox');
+  var panelone =document.getElementById('panelone');
+  panelone.setAttribute('class', 'panel panel-default');
+
+  var paneltwo = document.getElementById('paneltwo');
+  paneltwo.setAttribute('class', 'panel-body');
+
+  var commentStart = document.getElementById('commentbox');
 
   var commentDiv = document.createElement('div');
   commentDiv.className = 'col-md-5';
@@ -218,23 +229,51 @@ theThumbnails.addEventListener('click', function(theEvent) {
   var commentInput = document.createElement('textarea');
   commentInput.setAttribute('class', 'form-control');
   commentInput.setAttribute('rows', '3');
-  commentInput.setAttribute('id', "comments")
+  commentInput.setAttribute('id', "comments-text");
 
   var buttonRow = document.getElementById('buttonrow');
 
   var submitComment = document.createElement('button');
   submitComment.setAttribute('type', 'submit');
-  submitComment.setAttribute('class', 'btn btn-default');
+  submitComment.setAttribute('class', 'btn btn-default comment');
   submitComment.setAttribute('value', 'Submit');
+  submitComment.setAttribute('id', theEvent.target.getAttribute('id'));
   submitComment.textContent = 'Submit Comment';
 
   enlargedContainer.appendChild(enlargedVideo);
   enlarged.appendChild(enlargedContainer);
   commentStart.appendChild(commentDiv);
   commentDiv.appendChild(commentInput);
-  //commentDiv.appendChild(submitComment);
   buttonRow.appendChild(submitComment);
   // Create an enlarged video.
   // Append the large video to the enlarged view.
   swap(enlarged, view);
 })
+
+//var commentButton = document.getElementById('submitCommentButton');
+//commentButton.addEventListener('click', function(theEvent) {
+  //var getContent = document.getElementById('commentInput');
+  //var newComment = [];
+
+
+//});
+
+
+var getComment = document.getElementById('comments');
+getComment.addEventListener('click', function(theEvent) {
+    var theComment = document.getElementById('comments-text').value;
+    videos.forEach(function(video) {
+      if (video.id == theEvent.target.getAttribute('id')) {
+        video.comments.push(theComment);
+        console.log(theComment)
+      }
+    })
+  return theComment;
+});
+
+/*var enlargedVideoSource = function theSource(embed) {
+  var embedSource = [];
+  videos.forEach(function(video)) {
+    if()
+  }
+}*/
