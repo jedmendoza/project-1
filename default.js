@@ -12,7 +12,7 @@ var videos =
     name: 'Film Theory: How to KILL X-Mens Magneto!',
     url: 'https://youtu.be/YTbeRTH7jkg',
     id: 2,
-    embed: ['https://www.youtube.com/v/YTbeRTH7jkg'],
+    embed: 'https://www.youtube.com/v/YTbeRTH7jkg',
     tags: ['film', 'x-men', 'magneto', 'movie', 'theory', 'marvel','all'],
     comments: [
       'LOL',
@@ -36,7 +36,7 @@ var videos =
     name: 'Dark Souls III: Pyromania - PART 1 - Game Grumps',
     url: 'https://youtu.be/Zk2wuSJOjCs',
     id: 4,
-    emebed: 'https://www.youtube.com/v/Zk2wuSJOjCs',
+    embed: 'https://www.youtube.com/v/Zk2wuSJOjCs',
     tags: ['game', 'grumps', 'funny', 'dark souls','all'],
     comments: [
       'Dark souls is so hard',
@@ -48,6 +48,7 @@ var videos =
     name: 'Top 10 NEW Games of June 2016',
     url: 'https://youtu.be/88xS3RdFB80',
     id: 5,
+    embed: 'https://www.youtube.com/v/88xS3RdFB80',
     tags: ['game', 'top', '2016','all'],
     comments: [
       'I can\'t wait!',
@@ -59,7 +60,7 @@ var videos =
     name: 'How to Stay Calm When You Know You\'ll Be Stressed | Daniel Levitin | TED Talks',
     url: 'https://youtu.be/8jPQjjsBbIc',
     id: 6,
-    emebed: 'https://www.youtube.com/v/8jPQjjsBbIc',
+    embed: 'https://www.youtube.com/v/8jPQjjsBbIc',
     tags: ['lifehack', 'ted talks', 'educational', 'stress relief','all'],
     comments: [
       'Glad I found this',
@@ -229,7 +230,8 @@ theThumbnails.addEventListener('click', function(theEvent) {
   var commentInput = document.createElement('textarea');
   commentInput.setAttribute('class', 'form-control');
   commentInput.setAttribute('rows', '3');
-  commentInput.setAttribute('id', "comments-text");
+  commentInput.setAttribute('id', theEvent.target.getAttribute('id'));
+
 
   var buttonRow = document.getElementById('buttonrow');
 
@@ -265,11 +267,13 @@ getComment.addEventListener('click', function(theEvent) {
     videos.forEach(function(video) {
       if (video.id == theEvent.target.getAttribute('id')) {
         video.comments.push(theComment);
-        console.log(theComment)
+        console.log(theEvent.target.value);
+        console.log(getComment);
       }
     })
-  return theComment;
 });
+
+
 
 /*var enlargedVideoSource = function theSource(embed) {
   var embedSource = [];
