@@ -229,13 +229,14 @@ theThumbnails.addEventListener('click', function(theEvent) {
   var exCommentDiv = document.createElement('div')
   exCommentDiv.className = 'col-md-5';
 
-  var exComment = document.createElement('p');
+  var exComment = document.createElement ('p');
   for (var i = 0; i < videos.length; i++) {
     if (videos[i].id == theEvent.target.getAttribute('id')) {
-      exComment.textContent = videos[i].comments ;
-      console.log(exComment)
+      exComment.textContent = videos[i].comments
+      }
     }
-  }
+
+
 
 
 
@@ -270,31 +271,37 @@ theThumbnails.addEventListener('click', function(theEvent) {
 //Adding event listener to parent element.
 var getComment = document.getElementById('comments');
 getComment.addEventListener('click', function(theEvent) {
-  var theComment = document.getElementById('comments-text').value;
+  var theComment = document.getElementById('user-comment').value;
   videos.forEach(function(video) {
+    console.log(theComment)
     if (video.id == theEvent.target.getAttribute('id')) {
       video.comments.push(theComment);
-      console.log(theEvent.target)
+      console.log(theEvent.target.value)
     }
   })
 });
 
-function existingComments(comment) {
+/*function existingComments(comment) {
   var words = [];
   videos.forEach(function(video) {
     if (video.comment.indexOf(video) !== -1) {
-      words.push(comment);
+      var testing = document.createElement('p')
       console.log(comment)
     }
 
   });
 
-}
-
+}*/
 
 /*var enlargedVideoSource = function theSource(embed) {
 var embedSource = [];
 videos.forEach(function(video)) {
 if()
 }
+}*/
+
+/*function createParagraphs(comments, id) {
+  for (var i = 0; i < videos.length; i++ ) {
+    if (videos[i].id == video.)
+  }
 }*/
