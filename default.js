@@ -245,7 +245,7 @@ theThumbnails.addEventListener('click', function(theEvent) {
   commentInput.setAttribute('rows', '3');
   commentInput.setAttribute('id', 'user-comment')
 
-  var buttonRow = document.getElementById('buttonrow');
+  var buttonRow = document.getElementById('buttonrow1');
 
   var submitComment = document.createElement('button');
   submitComment.setAttribute('type', 'submit');
