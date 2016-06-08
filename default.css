@@ -12,14 +12,6 @@ input {
 
 }
 
-button {
+#searchbutton {
   margin-left: 10px;
-}
-
-
-#video {
-  position: relative;
-  width: 426px;
-  height: 240px;
-  background-color: white;
 }

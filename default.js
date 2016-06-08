@@ -144,6 +144,8 @@ videoResults.addEventListener('click', function(theEvent) {
 });
 
 
+
+
 //Search for videos using tags
 function find(tags) {
   var suggestions = [];
@@ -211,9 +213,6 @@ theThumbnails.addEventListener('click', function(theEvent) {
     }
   }
 
-
-  //console.log(enlargedVideo);
-
   var largeVideoRow = document.getElementById('row hide');
 
   var panelone =document.getElementById('panelone');
@@ -227,11 +226,23 @@ theThumbnails.addEventListener('click', function(theEvent) {
   var commentDiv = document.createElement('div');
   commentDiv.className = 'col-md-5';
 
+  var exCommentDiv = document.createElement('div')
+  exCommentDiv.className = 'col-md-5';
+
+  var exComment = document.createElement('p');
+  for (var i = 0; i < videos.length; i++) {
+    if (videos[i].id == theEvent.target.getAttribute('id')) {
+      exComment.textContent = videos[i].comments ;
+      console.log(exComment)
+    }
+  }
+
+
+
   var commentInput = document.createElement('textarea');
   commentInput.setAttribute('class', 'form-control');
   commentInput.setAttribute('rows', '3');
-  commentInput.setAttribute('id', theEvent.target.getAttribute('id'));
-
+  commentInput.setAttribute('id', 'user-comment')
 
   var buttonRow = document.getElementById('buttonrow');
 
@@ -247,37 +258,43 @@ theThumbnails.addEventListener('click', function(theEvent) {
   commentStart.appendChild(commentDiv);
   commentDiv.appendChild(commentInput);
   buttonRow.appendChild(submitComment);
+  commentStart.appendChild(exCommentDiv);
+  exCommentDiv.appendChild(exComment);
+
   // Create an enlarged video.
   // Append the large video to the enlarged view.
   swap(enlarged, view);
 })
 
-//var commentButton = document.getElementById('submitCommentButton');
-//commentButton.addEventListener('click', function(theEvent) {
-  //var getContent = document.getElementById('commentInput');
-  //var newComment = [];
 
-
-//});
-
-
+//Adding event listener to parent element.
 var getComment = document.getElementById('comments');
 getComment.addEventListener('click', function(theEvent) {
-    var theComment = document.getElementById('comments-text').value;
-    videos.forEach(function(video) {
-      if (video.id == theEvent.target.getAttribute('id')) {
-        video.comments.push(theComment);
-        console.log(theEvent.target.value);
-        console.log(getComment);
-      }
-    })
+  var theComment = document.getElementById('comments-text').value;
+  videos.forEach(function(video) {
+    if (video.id == theEvent.target.getAttribute('id')) {
+      video.comments.push(theComment);
+      console.log(theEvent.target)
+    }
+  })
 });
 
+function existingComments(comment) {
+  var words = [];
+  videos.forEach(function(video) {
+    if (video.comment.indexOf(video) !== -1) {
+      words.push(comment);
+      console.log(comment)
+    }
+
+  });
+
+}
 
 
 /*var enlargedVideoSource = function theSource(embed) {
-  var embedSource = [];
-  videos.forEach(function(video)) {
-    if()
-  }
+var embedSource = [];
+videos.forEach(function(video)) {
+if()
+}
 }*/
