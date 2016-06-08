@@ -229,16 +229,16 @@ theThumbnails.addEventListener('click', function(theEvent) {
   var exCommentDiv = document.createElement('div')
   exCommentDiv.className = 'col-md-5';
 
-  var exComment = document.createElement ('p');
+  //var exComment = document.createElement ('p');
   for (var i = 0; i < videos.length; i++) {
     if (videos[i].id == theEvent.target.getAttribute('id')) {
-      exComment.textContent = videos[i].comments
+      for (var k = 0; k < videos[i].comments.length; k++) {
+        var commentP = document.createElement('p');
+        commentP.textContent = videos[i].comments[k];
+        exCommentDiv.appendChild(commentP);
+      }
       }
     }
-
-
-
-
 
   var commentInput = document.createElement('textarea');
   commentInput.setAttribute('class', 'form-control');
@@ -260,7 +260,7 @@ theThumbnails.addEventListener('click', function(theEvent) {
   commentDiv.appendChild(commentInput);
   buttonRow.appendChild(submitComment);
   commentStart.appendChild(exCommentDiv);
-  exCommentDiv.appendChild(exComment);
+  //exCommentDiv.appendChild(commentP);
 
   // Create an enlarged video.
   // Append the large video to the enlarged view.
@@ -282,14 +282,14 @@ getComment.addEventListener('click', function(theEvent) {
 });
 
 /*function existingComments(comment) {
-  var words = [];
-  videos.forEach(function(video) {
-    if (video.comment.indexOf(video) !== -1) {
-      var testing = document.createElement('p')
-      console.log(comment)
-    }
+var words = [];
+videos.forEach(function(video) {
+if (video.comment.indexOf(video) !== -1) {
+var testing = document.createElement('p')
+console.log(comment)
+}
 
-  });
+});
 
 }*/
 
@@ -301,7 +301,7 @@ if()
 }*/
 
 /*function createParagraphs(comments, id) {
-  for (var i = 0; i < videos.length; i++ ) {
-    if (videos[i].id == video.)
-  }
+for (var i = 0; i < videos.length; i++ ) {
+if (videos[i].id == video.)
+}
 }*/
