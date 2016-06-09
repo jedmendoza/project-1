@@ -279,7 +279,6 @@ getComment.addEventListener('click', function(theEvent) {
       video.comments.push(theComment);
       removeComments();
     }
-
   })
 });
 
@@ -294,9 +293,12 @@ function removeComments() {
   }
 }
 
-function addNewComment(words) {
+function addNewComment() {
   for (var i = 0; i < videos[i].length; i++) {
     for (var k = 0; k < videos[i].comments.length; k++) {
+      var exCommentDiv = document.createElement('div')
+      exCommentDiv.className = 'col-md-5';
+      exCommentDiv.setAttribute('id', 'clear-comment');
       var commentP2 = document.createElement('p');
       commentP2.textContent = videos[i].comments[k];
       exCommentDiv.appendChild(commentP2);
