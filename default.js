@@ -197,6 +197,7 @@ function swap(next, view) {
   // Show the enlarged video video.
 }
 
+//Shows enlarged version of the thumbnail with comments
 var theThumbnails = document.getElementById('thumbnails');
 theThumbnails.addEventListener('click', function(theEvent) {
   //console.log(theEvent.target.className);
@@ -205,6 +206,7 @@ theThumbnails.addEventListener('click', function(theEvent) {
   enlargedContainer.setAttribute('class', 'embed-responsive embed-responsive-16by9');
   console.log(enlargedContainer)
 
+  //Creates 'iframe' with video.id
   var enlargedVideo = document.createElement('iframe');
   enlargedVideo.setAttribute('class', 'embed-responsive-item');
   for (var i = 0; i < videos.length; i++) {
@@ -228,18 +230,14 @@ theThumbnails.addEventListener('click', function(theEvent) {
 
   var exCommentDiv = document.createElement('div')
   exCommentDiv.className = 'col-md-5';
-  exCommentDiv.setAttribute('id', 'clear-comment')
+  exCommentDiv.setAttribute('id', 'clear-comment');
 
-  //var exComment = document.createElement ('p');
-  for (var i = 0; i < videos.length; i++) {
-    if (videos[i].id == theEvent.target.getAttribute('id')) {
-      for (var k = 0; k < videos[i].comments.length; k++) {
-        var commentP = document.createElement('p');
-        commentP.textContent = videos[i].comments[k];
-        exCommentDiv.appendChild(commentP);
-      }
-    }
+
+  var commented = comments(theEvent.target.getAttribute('id'));
+  for (var i = 0; i < commented.length; i++) {
+    exCommentDiv.appendChild(commented[i]);
   }
+
 
   var commentInput = document.createElement('textarea');
   commentInput.setAttribute('class', 'form-control');
@@ -255,13 +253,15 @@ theThumbnails.addEventListener('click', function(theEvent) {
   submitComment.setAttribute('id', theEvent.target.getAttribute('id'));
   submitComment.textContent = 'Submit Comment';
 
+
+  //appends children to parents
   enlargedContainer.appendChild(enlargedVideo);
   enlarged.appendChild(enlargedContainer);
   commentStart.appendChild(commentDiv);
   commentDiv.appendChild(commentInput);
   buttonRow.appendChild(submitComment);
   commentStart.appendChild(exCommentDiv);
-  //exCommentDiv.appendChild(commentP);
+
 
   // Create an enlarged video.
   // Append the large video to the enlarged view.
@@ -274,14 +274,32 @@ var getComment = document.getElementById('comments');
 getComment.addEventListener('click', function(theEvent) {
   var theComment = document.getElementById('user-comment').value;
   videos.forEach(function(video) {
-    console.log(theComment)
     if (video.id == theEvent.target.getAttribute('id')) {
       video.comments.push(theComment);
       removeComments();
+      var thePTags = comments(theEvent.target.getAttribute('id'));
+      console.log(thePTags)
+      var area = document.getElementById('clear-comment');
+      for (var i = 0; i < thePTags.length; i++) {
+        area.appendChild(thePTags[i]);
+      }
     }
   })
 });
 
+function comments(id) {
+  var postedComments =[]
+  for (var i = 0; i < videos.length; i++) {
+    if (videos[i].id == id) {
+      for (var k = 0; k < videos[i].comments.length; k++) {
+        var commentP = document.createElement('p');
+        commentP.textContent = videos[i].comments[k];
+        postedComments.push(commentP);
+      }
+    }
+  }
+  return postedComments;
+}
 
 function removeComments() {
   var commentParent = document.getElementById('clear-comment');
@@ -289,22 +307,21 @@ function removeComments() {
 
   while (oldComment) {
     commentParent.removeChild(oldComment);
-    oldComment = commentParent.firstChild;
+    oldComment = commentParent.firstChild
   }
 }
 
-function addNewComment() {
-  for (var i = 0; i < videos[i].length; i++) {
-    for (var k = 0; k < videos[i].comments.length; k++) {
-      var exCommentDiv = document.createElement('div')
-      exCommentDiv.className = 'col-md-5';
-      exCommentDiv.setAttribute('id', 'clear-comment');
-      var commentP2 = document.createElement('p');
-      commentP2.textContent = videos[i].comments[k];
-      exCommentDiv.appendChild(commentP2);
+/*function displayComment() {
+  for (var i = 0; i < videos.length; i++) {
+    if (videos[i].id == theEvent.target.getAttribute('id')) {
+      for (var k = 0; k < video.comments.length; k++) {
+        var commentP = document.createElement('p');
+        commentP.textContent = videos[i].comments[k];
+        exCommentDiv.appendChild(commentP);
+      }
     }
   }
-}
+}*/
 
 
 
