@@ -134,7 +134,7 @@ var videos =
 var videoResults = document.getElementById('searchbutton');
 videoResults.addEventListener('click', function(theEvent) {
   var term = document.getElementById('input');
-  var theVideos = find(term.value, videos);
+  var theVideos = find(term.value);
   console.log(theVideos);
   theVideos.forEach(function(video) {
     var theElement = videoThumbnail(video);
@@ -152,7 +152,6 @@ function find(tags) {
   videos.forEach(function(video) {
     if (video.tags.indexOf(tags) !== -1)  {
       suggestions.push(video)
-      console.log(suggestions);
     }
   });
   return suggestions;
@@ -179,6 +178,7 @@ function videoThumbnail(video) {
   container.appendChild(thumbnail);
   container.appendChild(button);
   thumbnail.appendChild(embed);
+
   return container;
 }
 
@@ -228,6 +228,7 @@ theThumbnails.addEventListener('click', function(theEvent) {
 
   var exCommentDiv = document.createElement('div')
   exCommentDiv.className = 'col-md-5';
+  exCommentDiv.setAttribute('id', 'clear-comment')
 
   //var exComment = document.createElement ('p');
   for (var i = 0; i < videos.length; i++) {
@@ -237,8 +238,8 @@ theThumbnails.addEventListener('click', function(theEvent) {
         commentP.textContent = videos[i].comments[k];
         exCommentDiv.appendChild(commentP);
       }
-      }
     }
+  }
 
   var commentInput = document.createElement('textarea');
   commentInput.setAttribute('class', 'form-control');
@@ -276,10 +277,34 @@ getComment.addEventListener('click', function(theEvent) {
     console.log(theComment)
     if (video.id == theEvent.target.getAttribute('id')) {
       video.comments.push(theComment);
-      console.log(theEvent.target.value)
+      removeComments();
     }
+
   })
 });
+
+
+function removeComments() {
+  var commentParent = document.getElementById('clear-comment');
+  var oldComment = commentParent.firstChild;
+
+  while (oldComment) {
+    commentParent.removeChild(oldComment);
+    oldComment = commentParent.firstChild;
+  }
+}
+
+function addNewComment(words) {
+  for (var i = 0; i < videos[i].length; i++) {
+    for (var k = 0; k < videos[i].comments.length; k++) {
+      var commentP2 = document.createElement('p');
+      commentP2.textContent = videos[i].comments[k];
+      exCommentDiv.appendChild(commentP2);
+    }
+  }
+}
+
+
 
 /*function existingComments(comment) {
 var words = [];
